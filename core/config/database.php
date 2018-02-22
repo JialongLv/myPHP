@@ -7,7 +7,7 @@
  */
 return array(
     'database_type' => 'mysql',
-    'database_name' => 'bike',
+    'database_name' => 'hello',
     'server' => 'localhost',
     'username' => 'hello',
     'password' => 'hello',

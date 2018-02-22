@@ -11,10 +11,25 @@ use core\lib\model;
 
 class myModel extends model
 {
-    public $table=  'bk_admin';
-    public function  lists(){
+    public $table=  'guestbook';
+    public function  all(){
         $ret = $this->select($this->table,'*');
         return $ret;
+    }
+
+    public function addOne($data){
+        return $this->insert($this->table, $data);
+    }
+
+    public function delOne($id){
+        $ret = $this->delete($this->table,array(
+            'id'=>$id
+        ));
+        if ($ret !==false){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }

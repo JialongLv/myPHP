@@ -57,21 +57,18 @@ class myPHP
     }
 
     public function display($file){
-       $file = APP.'/views/'.$file;
-       if (is_file($file)){
-//             extract($this->assign);
-//           p($this->assign);exit();
-//           include $file;
+//        dump($file);
+        $path = APP.'/views/'.$file;
+//        dump($path);
+       if (is_file($path)){
 
-//           require_once '../vendor/autoload.php';
-//           \Twig_Autoloader::register();
            $loader = new \Twig_Loader_Filesystem(APP.'/views');
            $twig = new \Twig_Environment($loader, array(
                'cache' => myPHP.'/log/twig',
            ));
 
-           $template = $twig->loadTemplate('index.html');
-           $template->display($this->assign?$this->assign:'');
+           $template = $twig->load($file);
+           $template->display($this->assign?$this->assign:array());
        }
     }
 
